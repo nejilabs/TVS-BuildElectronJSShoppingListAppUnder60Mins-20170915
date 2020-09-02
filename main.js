@@ -31,7 +31,11 @@ const mainMenuTemplate = [
     submenu:[
       {label:'Add Item'},
       {label:'Clear Items'},
-      {label:'Quit', click(){app.quit()}}
+      {
+        label:'Quit',
+        accelerator:process.platform == 'darwin'? 'Command+Q' : 'Ctrl+Q',
+        click(){app.quit()}
+      }
     ]
   }
 ]
