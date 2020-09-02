@@ -72,4 +72,9 @@ const mainMenuTemplate = [
       }
     ]
   }
-]
+];
+
+//If mac, add empty object to Menu
+if(process.platform == 'darwin'){
+  mainMenuTemplate.unshift({});
+}
