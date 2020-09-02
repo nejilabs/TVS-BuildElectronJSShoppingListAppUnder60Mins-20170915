@@ -76,9 +76,16 @@ const mainMenuTemplate = [
     submenu:[
       {
         label:'Add Item',
+        accelerator:'Command+A',
         click(){createAddWindow()}
       },
-      {label:'Clear Items'},
+      {
+        label:'Clear Items',
+        accelerator:'Command+C',
+        click(){
+          mainWindow.webContents.send('item:clear')
+        }
+      },
       {
         label:'Quit',
         accelerator:process.platform == 'darwin'? 'Command+Q' : 'Ctrl+Q',
