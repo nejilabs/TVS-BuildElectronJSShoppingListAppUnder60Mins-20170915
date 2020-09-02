@@ -1,0 +1,14 @@
+{
+  "name": "tvs-electron",
+  "version": "1.0.0",
+  "description": "shopping list desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "nellyXinwei",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^10.1.1"
+  }
+}
