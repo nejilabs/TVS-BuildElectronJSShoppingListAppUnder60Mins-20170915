@@ -4,10 +4,17 @@
 <head>
   <meta charset="utf-8">
   <title>Shopping list</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
-  <h1>Shopping List</h1>
+  <nav>
+    <div class="nav-wrapper">
+      <a class="brand-logo center">Shopping List</a>
+    </div>
+  </nav>
+
   <ul></ul>
 
   <script type="text/javascript">
@@ -19,7 +26,9 @@
 
     //Catch Add Item
     ipcRenderer.on('item:add', function(e, item) {
+      ul.className = 'collection';
       const li = document.createElement('li');
+      li.className = 'collection-item'
       const itemText = document.createTextNode(item);
       li.appendChild(itemText);
       ul.appendChild(li);
@@ -35,6 +44,9 @@
 
     function removeItem(e) {
       e.target.remove()
+      if (ul.children.length == 0) {
+        ul.className = "";
+      }
     }
   </script>
 </body>
