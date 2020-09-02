@@ -39,12 +39,18 @@ function createAddWindow(){
     height:200,
     title:'Add Shopping List Item'
   });
+
   //load html into window
   addWindow.loadURL(url.format({
     pathname:path.join(__dirname, 'addWindow.html'),
     protocol:'file',
     slashes:true
   }));
+
+  //Garbage collection handle
+  addWindow.on("close",function (){
+    addWindow = null;
+  });
 }
 
 
