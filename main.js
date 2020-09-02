@@ -58,7 +58,7 @@ function createAddWindow(){
 //Create Menu Template
 const mainMenuTemplate = [
   {
-    label:'file',
+    label:'File',
     submenu:[
       {
         label:'Add Item',
@@ -76,5 +76,24 @@ const mainMenuTemplate = [
 
 //If mac, add empty object to Menu
 if(process.platform == 'darwin'){
-  mainMenuTemplate.unshift({});
+  mainMenuTemplate.unshift({label:"Electron"});
+}
+
+//Add developer tools item if not in production
+if(process.env.NODE_ENV !== 'production'){
+  mainMenuTemplate.push({
+    label:"Developer Tools",
+    submenu:[
+      {
+        label:'Toggle DevTools',
+        accelerator:process.platform == 'darwin'? 'Command+I' : 'Ctrl+I',
+        click(item,focusedWindow){
+          focusedWindow.toggleDevTools();
+        }
+      },
+      {
+        role:'reload'
+      }
+    ]
+  })
 }
